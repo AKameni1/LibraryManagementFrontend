@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  font-family: 'Inter', sans-serif;
+}
+
+@keyframes gradientText {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #9f6ce7, #bb54b3, #80bcd4);
+  background-size: 200% 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientText 5s infinite alternate;
+}
+
+.BackToTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #f8f9fa;
+  border-radius: 50%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.BackToTop.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.BackToTop:hover {
+  transform: scale(1.1);
+  background-color: #e2e6ea;
+}
