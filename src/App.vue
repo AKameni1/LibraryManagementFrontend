@@ -1,24 +1,29 @@
 <template>
   <div id="app">
-    <Header v-if="requiresLayout" />
+    <Header v-if="requiresHeader" />
 
     <!-- Contenu principal -->
     <main class="flex-grow">
       <router-view />
     </main>
 
-    <Footer v-if="requiresLayout" />
+    <Footer v-if="requiresFooter" />
   </div>
 </template>
 
 <script setup>
-import { useRoute } from 'vue-router'
+import { useRouter } from 'vue-router'
 import Header from './components/Header.vue'
 import Footer from './components/Footer.vue'
-import { computed } from 'vue';
+import { computed } from 'vue'
 
-const route = useRoute()
+const route = useRouter()
 
-const requiresLayout = computed(() => !['LandingPage', 'Login', 'Signup', 'NotFound'].includes(route.name))
+const requiresHeader = computed(() =>
+  ['Getstarted', 'Login', 'Signup', 'NotFound'].includes(route.name)
+)
 
+const requiresFooter = computed(() =>
+  ['Getstarted', 'Login', 'Signup', 'About', 'NotFound'].includes(route.name)
+)
 </script>

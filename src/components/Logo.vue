@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-white py-24 sm:py-32">
+  <section class="py-24 sm:py-32">
     <div class="relative mx-auto max-w-7xl px-6 lg:px-8">
       <h2 class="text-center text-lg/8 font-semibold text-gray-900">
         Trusted by the world’s most innovative teams

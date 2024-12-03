@@ -11,20 +11,26 @@
         proident excepteur commodo do ea.
       </p>
       <div class="mt-8">
-        <router-link to="/signup"
-          class="rounded-md bg-indigo-600 px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get
-          started</router-link>
+        <router-link
+          to="/signup"
+          class="rounded-md bg-indigo-600 px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          >Get started</router-link
+        >
       </div>
     </section>
 
     <!-- Section des liens -->
     <section
-      class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-1 py-12 flex flex-col md:flex-row items-start border-t border-gray-200">
+      class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-1 py-12 flex flex-col md:flex-row items-start border-t border-gray-200"
+    >
       <div class="flex flex-col space-y-4">
         <!-- Logo -->
         <div class="flex-shrink-0 md:w-1/4 mb-8 md:mb-0">
-          <img class="h-10 w-auto" src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=600"
-            alt="Company Logo" />
+          <img
+            class="h-10 w-auto"
+            src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=600"
+            alt="Company Logo"
+          />
         </div>
 
         <p class="text-gray-600 text-sm">
@@ -51,13 +57,25 @@
 
     <!-- Section inférieure -->
     <section
-      class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 border-t border-gray-200 flex flex-col md:flex-row items-center justify-between">
+      class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 border-t border-gray-200 flex flex-col md:flex-row items-center justify-between"
+    >
       <p class="text-sm text-gray-500">© 2024 Your Company, Inc. All rights reserved.</p>
       <div class="flex space-x-4 mt-4 md:mt-0">
-        <a v-for="icon in socialIcons" :key="icon.name" :href="icon.href" class="text-gray-600 hover:text-gray-900"
-          target="_blank">
+        <a
+          v-for="icon in socialIcons"
+          :key="icon.name"
+          :href="icon.href"
+          class="text-gray-600 hover:text-gray-900"
+          target="_blank"
+        >
           <span class="sr-only">{{ icon.name }}</span>
-          <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" v-html="icon.svg"></svg>
+          <svg
+            class="h-6 w-6"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            v-html="icon.svg"
+          ></svg>
         </a>
       </div>
     </section>
