@@ -2,7 +2,6 @@ import { createRouter, createWebHistory } from 'vue-router'
 import { useAuthStore } from '../stores/auth.js'
 
 // Import des vues
-import LandingView from '../views/LandingView.vue'
 import LoginView from '../views/LoginView.vue'
 import DashboardView from '../views/DashboardView.vue'
 import SignupView from '../views/SignupView.vue'
@@ -17,8 +16,7 @@ import InactiveAccount from '../views/InactiveAccountView.vue'
 import NotFoundView from '../views/NotFoundView.vue'
 
 const routes = [
-  { path: '/', name: 'Getstarted', component: LandingView },
-  { path: '/login', name: 'Login', component: LoginView },
+  { path: '/', name: 'Login', component: LoginView },
   { path: '/signup', name: 'Signup', component: SignupView },
   { path: '/forgot-password', name: 'ForgotPassword', component: ForgotPasswordView },
   { path: '/product', name: 'Product', component: ProductView },

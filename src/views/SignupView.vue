@@ -2,21 +2,14 @@
   <div class="lg rp zf ajh">
     <div class="lg rt va zf zs asn cnr dmr">
       <div class="cdi chy cih">
-        <img
-          alt="Your Company"
-          src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=600"
-          class="gh nx tz"
-        />
+        <img alt="Your Company" src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=600"
+          class="gh nx tz" />
         <h1 class="kt awe awm axo axz ayx">Create your account</h1>
       </div>
       <div class="kg cdi chy cif">
         <div class="aml asf asn bck clz cnj">
           <Form :validationSchema="schema" v-slot="{ handleSubmit }">
-            <form
-              @submit.prevent="handleSubmit(handleSubmitWithAlert)"
-              novalidate
-              class="grid grid-cols-2 gap-4"
-            >
+            <form @submit.prevent="handleSubmit(handleSubmitWithAlert)" novalidate class="grid grid-cols-2 gap-4">
               <!-- Section pour afficher le message d'erreur général -->
               <div v-if="errorMessage" class="col-span-2 text-red-500 text-sm mb-4 text-center">
                 {{ errorMessage }}
@@ -26,13 +19,9 @@
               <div>
                 <label for="username" class="ld axf axp ayx">Username</label>
                 <Field name="username" v-slot="{ field }">
-                  <input
-                    id="username"
-                    type="text"
-                    v-bind="field"
+                  <input id="username" type="text" v-bind="field"
                     class="kl ld ua aen aml asa asl awv ayx bcw bcx bcy bdb bgr boi bok bor cqw"
-                    autocomplete="username"
-                  />
+                    autocomplete="username" />
                 </Field>
                 <ErrorMessage name="username" as="span" class="text-red-500 text-sm" />
               </div>
@@ -41,13 +30,8 @@
               <div>
                 <label for="email" class="ld axf axp ayx">Email address</label>
                 <Field name="email" v-slot="{ field }">
-                  <input
-                    id="email"
-                    type="email"
-                    autocomplete="email"
-                    v-bind="field"
-                    class="kl ld ua aen aml asa asl awv ayx bcw bcx bcy bdb bgr boi bok bor cqw"
-                  />
+                  <input id="email" type="email" autocomplete="email" v-bind="field"
+                    class="kl ld ua aen aml asa asl awv ayx bcw bcx bcy bdb bgr boi bok bor cqw" />
                 </Field>
                 <ErrorMessage name="email" as="span" class="text-red-500 text-sm" />
               </div>
@@ -56,13 +40,8 @@
               <div>
                 <label for="password" class="ld axf axp ayx">Password</label>
                 <Field name="password" v-slot="{ field }">
-                  <input
-                    id="password"
-                    type="password"
-                    autocomplete="new-password"
-                    v-bind="field"
-                    class="kl ld ua aen aml asa asl awv ayx bcw bcx bcy bdb bgr boi bok bor cqw"
-                  />
+                  <input id="password" type="password" autocomplete="new-password" v-bind="field"
+                    class="kl ld ua aen aml asa asl awv ayx bcw bcx bcy bdb bgr boi bok bor cqw" />
                 </Field>
                 <ErrorMessage name="password" as="span" class="text-red-500 text-sm" />
               </div>
@@ -71,40 +50,24 @@
               <div>
                 <label for="confirmPassword" class="ld axf axp ayx">Confirm Password</label>
                 <Field name="confirmPassword" v-slot="{ field }">
-                  <input
-                    id="confirmPassword"
-                    type="password"
-                    v-bind="field"
-                    class="kl ld ua aen aml asa asl awv ayx bcw bcx bcy bdb bgr boi bok bor cqw"
-                  />
+                  <input id="confirmPassword" type="password" v-bind="field"
+                    class="kl ld ua aen aml asa asl awv ayx bcw bcx bcy bdb bgr boi bok bor cqw" />
                 </Field>
                 <ErrorMessage name="confirmPassword" as="span" class="text-red-500 text-sm" />
               </div>
 
               <!-- Champ Image de profil -->
               <div class="col-span-2">
-                <label for="profileImage" class="block text-sm font-medium text-gray-900"
-                  >Profile Image</label
-                >
-                <div
-                  class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10"
-                >
+                <label for="profileImage" class="block text-sm font-medium text-gray-900">Profile Image</label>
+                <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
                   <div class="text-center">
                     <PhotoIcon class="mx-auto size-12 text-gray-300" aria-hidden="true" />
                     <div class="mt-4 flex text-sm text-gray-600">
-                      <label
-                        for="profileImage"
-                        class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
-                      >
+                      <label for="profileImage"
+                        class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
                         <span>Upload a file</span>
-                        <input
-                          id="profileImage"
-                          name="profileImage"
-                          type="file"
-                          accept=".jpg,.jpeg,.png"
-                          @change="onFileChange"
-                          class="sr-only"
-                        />
+                        <input id="profileImage" name="profileImage" type="file" accept=".jpg,.jpeg,.png"
+                          @change="onFileChange" class="sr-only" />
                       </label>
                       <p class="pl-1">or drag and drop</p>
                     </div>
@@ -115,31 +78,22 @@
               </div>
 
               <!-- Alerte pour la photo par défaut -->
-              <div
-                v-if="showDefaultImageAlert"
-                class="col-span-2 bg-yellow-50 border-l-4 border-yellow-400 p-4"
-              >
+              <div v-if="showDefaultImageAlert" class="col-span-2 bg-yellow-50 border-l-4 border-yellow-400 p-4">
                 <p class="text-sm text-yellow-700">
                   No profile image selected. A default image will be used. Please confirm to
                   proceed.
                 </p>
-                <button
-                  type="button"
-                  @click="acceptDefaultImage"
+                <button type="button" @click="acceptDefaultImage"
                   class="mt-2 rounded-md px-4 py-2 text-sm font-semibold text-white hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2"
-                  style="background-color: #f59e0b"
-                >
+                  style="background-color: #f59e0b">
                   Accept Default Image
                 </button>
               </div>
 
               <!-- Bouton de soumission -->
               <div class="col-span-2">
-                <button
-                  type="submit"
-                  :disabled="loading"
-                  class="lg ua zs aen akp asa asl axf axr bbl bcr bjz bqr bqs bqu brb"
-                >
+                <button type="submit" :disabled="loading"
+                  class="lg ua zs aen akp asa asl axf axr bbl bcr bjz bqr bqs bqu brb">
                   {{ loading ? 'Creating account...' : 'Sign up' }}
                 </button>
               </div>
@@ -148,7 +102,7 @@
         </div>
         <p class="kg awe axf ayt">
           Already have an account?
-          <router-link to="/login" class="axr azm bml">Sign in</router-link>
+          <router-link to="/" class="axr azm bml">Sign in</router-link>
         </p>
       </div>
     </div>
