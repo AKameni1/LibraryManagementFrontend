@@ -10,7 +10,6 @@
         <div class="aml asf asn bck clz cnj">
           <Form :validationSchema="schema" v-slot="{ handleSubmit }">
             <form @submit.prevent="handleSubmit(onSubmit)" :disabled="loading" novalidate class="aco">
-
               <!-- Section pour afficher le message d'erreur général -->
               <div v-if="errorMessage" class="text-red-500 text-sm mb-4 text-center">
                 {{ errorMessage }}
@@ -44,8 +43,7 @@
                         <path d="M3 8L6 11L11 3.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                           class="bby bvd"></path>
                         <path d="M3 7H11" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                          class="bby bve">
-                        </path>
+                          class="bby bve"></path>
                       </svg>
                     </div>
                   </div>
@@ -119,9 +117,6 @@ const router = useRouter()
 // Variables de chargement et d'erreur
 const loading = ref(false)
 const errorMessage = ref('')
-// const emailPattern =
-//   /^(?!.*\.\.)[a-zA-Z0-9](?:[a-zA-Z0-9._-]*[a-zA-Z0-9])?@[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.[a-zA-Z]{2,6}$/
-
 
 // Schéma de validation avec yup
 const schema = yup.object({
@@ -129,10 +124,9 @@ const schema = yup.object({
   password: yup.string().required('Password is required')
 })
 
-
 // Gestion de la soumission du formulaire
 const onSubmit = async (values) => {
-  console.log('Form submitted:', values); // Test
+  console.log('Form submitted:', values) // Test
   loading.value = true
   errorMessage.value = ''
 

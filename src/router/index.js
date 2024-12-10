@@ -26,10 +26,15 @@ const routes = [
   { path: '/faq', name: 'FAQ', component: FAQView },
   { path: '/about', name: 'About', component: AboutView },
   { path: '/blog', name: 'Blog', component: BlogView },
-  { path: '/dashboard', name: 'Dashboard', component: DashboardView },
+  { path: '/dashboard', name: 'Dashboard', component: DashboardView, meta: { requiresAuth: true } },
   { path: '/privacy-policy', name: 'PrivacyPolicy', component: LegalView },
   { path: '/terms-of-service', name: 'TermsOfService', component: LegalView },
-  { path: '/inactive', name: 'InactiveAccount', component: InactiveAccount },
+  {
+    path: '/inactive',
+    name: 'InactiveAccount',
+    component: InactiveAccount,
+    meta: { requiresAuth: true }
+  },
   { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFoundView }
 ]
 
@@ -44,33 +49,12 @@ const router = createRouter({
 router.beforeEach(async (to, from) => {
   const authStore = useAuthStore()
 
-  if (to.name === 'Login' && authStore.isAuthenticated) {
-    return { name: 'Getstarted' }
-  }
-
-  if (authStore.isAuthenticated && !authStore.isActive) {
-    return { name: 'InactiveAccount' } // Rediriger vers une page pour les comptes inactifs
-  }
-
+  // Si la route nécessite une authentification et que l'utilisateur n'est pas authentifié
   if (to.meta.requiresAuth && !authStore.isAuthenticated) {
-    try {
-      await authStore.fetchProfile()
-      if (!authStore.isAuthenticated) {
-        return { name: 'Login' }
-      }
-    } catch {
-      return { name: 'Login' }
-    }
+    return { name: 'Login' } // Redirige vers la page de login
   }
 
-  if (to.meta.requiredPermissions) {
-    const hasPermissions = authStore.hasAllPermissions(to.meta.requiredPermissions)
-    if (!hasPermissions) {
-      return { name: 'NotFound' } // Rediriger si l'utilisateur n'a pas les permissions requises
-    }
-  }
-
-  return true
+  return true // Permet la navigation vers la route demandée
 })
 
 export default router

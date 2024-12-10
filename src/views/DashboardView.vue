@@ -9,6 +9,7 @@
       <div class="mt-10 flex items-center justify-center gap-x-6">
         <router-link
           to="/"
+          @click.prevent="logout"
           class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >Go back home</router-link
         >
@@ -19,3 +20,20 @@
     </div>
   </main>
 </template>
+
+<script setup>
+import { useAuthStore } from '../stores/auth.js'
+import { useRouter } from 'vue-router'
+
+const authStore = useAuthStore()
+const router = useRouter()
+
+const logout = async () => {
+  try {
+    await authStore.logoutUser()
+    router.push('/')
+  } catch (error) {
+    console.error('Erreur lors du logout :', error)
+  }
+}
+</script>
